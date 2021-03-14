@@ -27,13 +27,11 @@ class Calculator:
 
     def add_record(self, obj: Record):
         self.records.append(obj)
-        print(self.records)
 
     def get_today_stats(self):
         for i in self.records:
             if i.date == dt.date.today():
                 self.counter_today += i.amount
-        print(self.counter_today)
         return self.counter_today
 
     def get_week_stats(self):
@@ -41,7 +39,6 @@ class Calculator:
         for i in self.records:
             if (dt.date.today() >= i.date > (dt.date.today() - week)):
                 self.counter_week += i.amount
-        print(self.counter_week)
         return self.counter_week
 
 
