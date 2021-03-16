@@ -60,7 +60,7 @@ class Calculator:
 class CaloriesCalculator(Calculator):
     def get_calories_remained(self) -> str:
         """Вычисляет, сколько калорий вы можете съесть сегодня."""
-        remains_calories = super().get_remains()
+        remains_calories = self.get_remains()
         if remains_calories > 0:
             return ('Сегодня можно съесть что-нибудь ещё, '
                     'но с общей калорийностью не более '
@@ -84,7 +84,7 @@ class CashCalculator(Calculator):
         if currency not in currency_info:
             raise ValueError('Данной валюты нет в словаре')
 
-        limit_rate = super().get_remains()
+        limit_rate = self.get_remains()
         if limit_rate == 0:
             return 'Денег нет, держись'
 
@@ -93,6 +93,6 @@ class CashCalculator(Calculator):
 
         if limit_rate > 0:
             return f'На сегодня осталось {remains_cash} {currency_name}'
-        else:
-            return ('Денег нет, держись: '
-                    f'твой долг - {remains_cash} {currency_name}')
+
+        return ('Денег нет, держись: '
+                f'твой долг - {remains_cash} {currency_name}')
